@@ -1,6 +1,5 @@
 const author = document.getElementById("author");
-let userQuery = 'argafd\sf';
-
+let userQuery = 'Mountain';
 
 fetch(`https://api.unsplash.com/photos/random?client_id=LG2rIkefC7PHx4Xj15Sp0hTXf5v3Z2jq11mlut_0H3k&orientation=landscape&query=${userQuery}`)
   .then(response => response.json())
@@ -13,3 +12,6 @@ fetch(`https://api.unsplash.com/photos/random?client_id=LG2rIkefC7PHx4Xj15Sp0hTX
     author.innerText = "Logan Troxell"
   }
 )
+
+// Get local time
+const date = new Date();
