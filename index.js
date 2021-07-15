@@ -15,9 +15,15 @@ fetch(`https://api.unsplash.com/photos/random?client_id=LG2rIkefC7PHx4Xj15Sp0hTX
 )
 
 // Get local time
-const time = document.getElementById("time");
 
-const date = new Date();
-const currentTime = date.toLocaleTimeString("ru", {timeStyle: "short"});
 
-time.innerText = currentTime;
+function updateTime() {
+  const date = new Date();
+  const time = document.getElementById("time");
+  const currentTime = date.toLocaleTimeString("ru", {timeStyle: "short"});
+
+
+  time.innerText = currentTime;
+}
+
+setInterval(updateTime, 1000)
