@@ -27,3 +27,7 @@ function updateTime() {
 }
 
 setInterval(updateTime, 1000)
+
+
+// Weather
+const currentLocation = navigator.geolocation.getCurrentPosition(position => console.log(position))
