@@ -30,4 +30,15 @@ setInterval(updateTime, 1000)
 
 
 // Weather
-const currentLocation = navigator.geolocation.getCurrentPosition(position => console.log(position))
+const currentLocation = navigator.geolocation.getCurrentPosition(position => {
+  fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric&appid=123e8ca74b9d763f76b481f72270dda9`)
+    .then(res => {
+      if (!res.ok) {
+            throw Error("Данные о погоде недоступны")
+        }
+      return res.json()
+    })
+    .then(data => console.log(data))
+     .catch(err => console.error(err))
+  }
+)
