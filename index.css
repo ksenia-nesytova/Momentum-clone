@@ -22,6 +22,16 @@ main {
 
 }
 
+a {
+  text-decoration: none;
+  cursor: pointer;
+  color: inherit;
+}
+
+a:focus, a:hover {
+  color: yellow;
+}
+
 #time {
   font-size: 6em;
   text-align: center;
