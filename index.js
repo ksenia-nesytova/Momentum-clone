@@ -44,8 +44,9 @@ const currentLocation = navigator.geolocation.getCurrentPosition(position => {
       const iconURL = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
       weather.innerHTML = `
       <img src=${iconURL} />
-      <p>${Math.round(data.main.temp)}ºC</p>`
-      console.log(data.weather)
+      <p>${Math.round(data.main.temp)}ºC</p>
+      <p>${data.name}</p>`
+
     })
      .catch(err => console.error(err))
   }
