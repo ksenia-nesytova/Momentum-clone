@@ -30,6 +30,8 @@ setInterval(updateTime, 1000)
 
 
 // Weather
+const weather = document.getElementById("weather")
+
 const currentLocation = navigator.geolocation.getCurrentPosition(position => {
   fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric&appid=123e8ca74b9d763f76b481f72270dda9`)
     .then(res => {
@@ -38,7 +40,11 @@ const currentLocation = navigator.geolocation.getCurrentPosition(position => {
         }
       return res.json()
     })
-    .then(data => console.log(data))
+    .then(data => {
+      const iconURL = `http://openweathermap.org/img/w/${data.weather[0].icon}.png`;
+      weather.innerHTML = `<img src=${iconURL} />` + data.weather[0].description
+      console.log(data.weather)
+    })
      .catch(err => console.error(err))
   }
 )
