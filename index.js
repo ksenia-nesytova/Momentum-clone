@@ -45,6 +45,7 @@ const currentLocation = navigator.geolocation.getCurrentPosition(position => {
       weather.innerHTML = `
       <img src=${iconURL} />
       <p>${Math.round(data.main.temp)}ºC</p>
+      <p>${data.weather[0].description}</p>
       <p>${data.name}</p>`
 
     })
