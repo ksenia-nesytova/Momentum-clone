@@ -1,12 +1,15 @@
 const author = document.getElementById("author");
-let userQuery = 'mountain';
+let userQuery = 'nature';
 
 fetch(`https://api.unsplash.com/photos/random?client_id=LG2rIkefC7PHx4Xj15Sp0hTXf5v3Z2jq11mlut_0H3k&orientation=landscape&query=${userQuery}`)
   .then(response => response.json())
   .then(data => {
+      if(userQuery == false) {
+        throw Error("Empty or incorrect query")
+      } else {
     document.body.style.backgroundImage = `url('${data.urls.regular}')`
     author.innerText = data.user.name
-    author.href = data.user.links.html
+    author.href = data.user.links.html}
   })
   .catch(err => {
     console.error(err);
@@ -32,7 +35,7 @@ setInterval(updateTime, 1000)
 // Weather
 const weather = document.getElementById("weather")
 
-const currentLocation = navigator.geolocation.getCurrentPosition(position => {
+navigator.geolocation.getCurrentPosition(position => {
   fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric&appid=123e8ca74b9d763f76b481f72270dda9`)
     .then(res => {
       if (!res.ok) {

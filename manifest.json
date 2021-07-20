@@ -1,0 +1,18 @@
+{
+"manifest_version": 3,
+"name": "Lack of Momentum",
+"version": "1.0",
+
+"permissions": ["geolocation"],
+
+"description": "Momentum clone for practice",
+
+"chrome_url_overrides": {
+     "newtab": "index.html"
+ },
+
+ "options_ui": {
+     "page": "options.html",
+     "open_in_tab": false
+   }
+}
