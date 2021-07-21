@@ -47,6 +47,7 @@ a:focus, a:hover {
 
 #weather img {
   width: 100px;
+  margin-right: -1em;
 }
 
 #weather p:not(:first-of-type) {
